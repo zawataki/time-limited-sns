@@ -12,13 +12,24 @@
   display: flex;
   width: 100%;
   border-bottom: rgb(56, 68, 77) solid 1px;
-  padding: 10px;
+  padding: 7px;
   z-index: 999;
   background-color: #282c34;
 }
 
+.App-header-description {
+  margin-left: 10px;
+}
+
 .App-link {
-  color: #61dafb;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: larger;
+}
+
+.App-link:hover {
+  text-decoration: underline;
 }
 
 .App-main {

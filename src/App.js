@@ -8,12 +8,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>時限SNS</div>
         <div>
-          <a className="App-link" href="https://reactjs.org"
-            target="_blank" rel="noopener noreferrer">
-            Learn React
-            </a>
+          <a className="App-link" href="/time-limited-sns/">
+            カゲロウ
+          </a>
+        </div>
+        <div className="App-header-description">
+          （開発中）1時間で投稿が自動削除されるSNS
         </div>
       </header>
       <BrowserRouter>
