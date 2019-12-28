@@ -1,6 +1,7 @@
 import React from 'react';
 import './Timeline.css';
 import moment from 'moment-timezone';
+import { NavLink } from "react-router-dom";
 
 function Post(props) {
   let post = props.post;
@@ -10,12 +11,16 @@ function Post(props) {
   return (
     <article id={post.id} className="Post">
       <div className="Post-username-timestamp">
-        <div className="Post-username">User ID: {post.userId}</div>
+        <div>
+          <NavLink className="Post-username" to={'/users/' + post.userId}>
+            User: {"user" + post.userId}
+          </NavLink>
+        </div>
         <div className="Post-timestamp">　·　</div>
         <div className="Post-timestamp">{timestamp}</div>
       </div>
       <div>{post.body}</div>
-    </article >
+    </article>
   );
 }
 

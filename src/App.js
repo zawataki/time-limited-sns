@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Timeline from "./Timeline";
+import { BrowserRouter, NavLink, Route } from "react-router-dom";
+import UserHome from './UserHome';
 
 function App() {
   return (
@@ -14,9 +16,12 @@ function App() {
             </a>
         </div>
       </header>
-      <main className="App-main">
-        <Timeline />
-      </main>
+      <BrowserRouter>
+        <main className="App-main">
+          <Route exact path='/' component={Timeline} />
+          <Route path='/users/:id' component={UserHome} />
+        </main>
+      </BrowserRouter>
     </div>
   );
 }

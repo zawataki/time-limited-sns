@@ -10,6 +10,12 @@
 
 .Post-username {
   font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.Post-username:hover {
+  text-decoration: underline;
 }
 
 .Post-timestamp {
