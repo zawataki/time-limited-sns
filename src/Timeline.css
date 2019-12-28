@@ -1,0 +1,8 @@
+.Post {
+  padding: 10px;
+}
+
+.Post .username-area {
+  display: flex;
+  flex-direction: row;
+}
