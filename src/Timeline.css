@@ -1,5 +1,6 @@
 .Post {
   padding: 10px;
+  border-bottom: rgb(56, 68, 77) solid 1px;
 }
 
 .Post-username-timestamp {
