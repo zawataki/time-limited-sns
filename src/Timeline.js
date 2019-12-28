@@ -9,10 +9,10 @@ function Post(props) {
     .format('YYYY-MM-DD HH:mm:ss');
   return (
     <article id={post.id} className="Post">
-      <div className="username-area">
-        <div>User ID: {post.userId}</div>
-        <div>　　</div>
-        <div>{timestamp}</div>
+      <div className="Post-username-timestamp">
+        <div className="Post-username">User ID: {post.userId}</div>
+        <div className="Post-timestamp">　·　</div>
+        <div className="Post-timestamp">{timestamp}</div>
       </div>
       <div>{post.body}</div>
     </article >

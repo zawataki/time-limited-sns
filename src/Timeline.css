@@ -2,7 +2,15 @@
   padding: 10px;
 }
 
-.Post .username-area {
+.Post-username-timestamp {
   display: flex;
   flex-direction: row;
+}
+
+.Post-username {
+  font-weight: bold;
+}
+
+.Post-timestamp {
+  color: #8896A6;
 }
