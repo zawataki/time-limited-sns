@@ -1,9 +1,14 @@
 .SignIn {
   padding: 10px;
+  text-align: center;
 }
 
 .SignIn-top-message {
   font-size: 28px;
+}
+
+.SignIn span {
+  display: inline-block;
 }
 
 .SignIn-description {
@@ -21,7 +26,9 @@
   border-radius: 15px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border: none;
   color: white;
-  background-color: #49a9d4;
+  background-color: #1da1f2;
 }

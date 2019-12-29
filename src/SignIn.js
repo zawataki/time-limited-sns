@@ -12,14 +12,14 @@ class SignIn extends React.Component {
     return (
       <div className='SignIn'>
         <div className='SignIn-top-message'>
-          ツイートをあとから消すのに疲れたあなたへ
+          <span>SNSのメッセージを</span><span>あとから消すのに</span><span>疲れたあなたへ</span>
         </div>
         <div className='SignIn-description'>
-          カゲロウは、投稿したメッセージが1時間で消えるSNSです。<br />
-          さあ、カゲロウをはじめて、あとで消す手間から解放されましょう！
+          <span>カゲロウは、投稿したメッセージが</span><span>1時間で消えるSNSです。</span><br />
+          <span>さあ、カゲロウを使って、あとで消す手間から</span><span>解放されましょう！</span>
         </div>
         <div className='SignIn-button'>
-          <button onClick={this.signIn}>Twitterアカウントで新規登録／ログイン</button>
+          <button onClick={this.signIn}><span>Twitterアカウントで</span><span>新規登録／ログイン</span></button>
         </div>
       </div >
     );
