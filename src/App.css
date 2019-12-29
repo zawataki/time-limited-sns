@@ -9,7 +9,6 @@
 .App-header {
   position: sticky;
   top: 0;
-  width: 100%;
   display: flex;
   border-bottom: rgb(56, 68, 77) solid 1px;
   padding: 7px;
