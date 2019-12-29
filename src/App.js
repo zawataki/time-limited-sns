@@ -27,13 +27,11 @@ class App extends React.Component {
 
   render() {
     const signInPage = (
-      <div className="App">
-        <SignIn />
-      </div>
+      <SignIn />
     );
 
     const timeLinePage = (
-      <div className="App">
+      <div>
         <header className="App-header">
           <div>
             <a className="App-link" href="/time-limited-sns/">
