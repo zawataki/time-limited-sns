@@ -1,0 +1,27 @@
+.SignIn {
+  padding: 10px;
+}
+
+.SignIn-top-message {
+  font-size: 28px;
+}
+
+.SignIn-description {
+  padding-top: 30px;
+}
+
+.SignIn-button {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.SignIn-button button {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+  color: white;
+  background-color: #49a9d4;
+}

@@ -12,7 +12,7 @@ function Post(props) {
     <article id={post.id} className="Post">
       <div className="Post-username-timestamp">
         <div>
-          <NavLink className="Post-username" to={'./users/' + post.userId}>
+          <NavLink className="Post-username" to={'/time-limited-sns/users/' + post.userId}>
             User: {"user" + post.userId}
           </NavLink>
         </div>
