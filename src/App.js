@@ -46,11 +46,12 @@ class App extends React.Component {
         </header>
         <BrowserRouter>
           <main className="App-main">
+            {/* TODO: Delete the username below */}
             <img src={this.state.user && this.state.user.photoURL} alt='profile'></img>
             {this.state.user && this.state.user.displayName}
             <button onClick={this.signOut}>ログアウト</button>
             <Route exact path='/time-limited-sns/' component={Timeline} />
-            <Route path='/time-limited-sns/users/:id' component={UserHome} />
+            <Route exact path='/time-limited-sns/users/:id' component={UserHome} />
           </main>
         </BrowserRouter>
       </div>
