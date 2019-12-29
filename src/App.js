@@ -55,7 +55,7 @@ class App extends React.Component {
       </div>
     );
 
-    const judge = () => {
+    const getPageContent = () => {
       if (!this.state.checked_signin) {
         return (
           <div>
@@ -70,7 +70,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        {judge()}
+        {getPageContent()}
       </div >
     );
   }
