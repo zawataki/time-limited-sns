@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Timeline from "./Timeline";
 import { BrowserRouter, Route } from "react-router-dom";
-import UserHome from './UserHome';
+import UserProfile from './UserProfile';
 import firebase from "./firebase";
 import SignIn from './SignIn';
 
@@ -51,7 +51,7 @@ class App extends React.Component {
             {this.state.user && this.state.user.displayName}
             <button onClick={this.signOut}>ログアウト</button>
             <Route exact path='/time-limited-sns/' component={Timeline} />
-            <Route exact path='/time-limited-sns/users/:id' component={UserHome} />
+            <Route exact path='/time-limited-sns/users/:id' component={UserProfile} />
           </main>
         </BrowserRouter>
       </div>
