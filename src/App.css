@@ -7,10 +7,10 @@
 }
 
 .App-header {
+  position: sticky;
   top: 0;
-  position: fixed;
-  display: flex;
   width: 100%;
+  display: flex;
   border-bottom: rgb(56, 68, 77) solid 1px;
   padding: 7px;
   z-index: 999;
@@ -22,13 +22,10 @@
 }
 
 .App-main {
-  display: block;
-  width: auto;
-  top: 40px;
-  /* align-items: stretch; */
-  overflow-y: scroll;
-  padding: 10px;
   position: relative;
+  display: block;
+  overflow-y: scroll;
+  padding: 5px;
 }
 
 .App-link {
