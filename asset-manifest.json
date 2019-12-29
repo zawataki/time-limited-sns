@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/time-limited-sns/static/css/main.42cfe22a.chunk.css",
+    "main.css": "/time-limited-sns/static/css/main.50960768.chunk.css",
     "main.js": "/time-limited-sns/static/js/main.8bdcdabc.chunk.js",
     "main.js.map": "/time-limited-sns/static/js/main.8bdcdabc.chunk.js.map",
     "runtime-main.js": "/time-limited-sns/static/js/runtime-main.48111956.js",
@@ -8,15 +8,15 @@
     "static/js/2.0e6438c8.chunk.js": "/time-limited-sns/static/js/2.0e6438c8.chunk.js",
     "static/js/2.0e6438c8.chunk.js.map": "/time-limited-sns/static/js/2.0e6438c8.chunk.js.map",
     "index.html": "/time-limited-sns/index.html",
-    "precache-manifest.89f3ee06479e9426ab7524b1f981bd8b.js": "/time-limited-sns/precache-manifest.89f3ee06479e9426ab7524b1f981bd8b.js",
+    "precache-manifest.3e37c9c47c9699ee1601747edf58463e.js": "/time-limited-sns/precache-manifest.3e37c9c47c9699ee1601747edf58463e.js",
     "service-worker.js": "/time-limited-sns/service-worker.js",
-    "static/css/main.42cfe22a.chunk.css.map": "/time-limited-sns/static/css/main.42cfe22a.chunk.css.map",
+    "static/css/main.50960768.chunk.css.map": "/time-limited-sns/static/css/main.50960768.chunk.css.map",
     "static/js/2.0e6438c8.chunk.js.LICENSE": "/time-limited-sns/static/js/2.0e6438c8.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.48111956.js",
     "static/js/2.0e6438c8.chunk.js",
-    "static/css/main.42cfe22a.chunk.css",
+    "static/css/main.50960768.chunk.css",
     "static/js/main.8bdcdabc.chunk.js"
   ]
 }
