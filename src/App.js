@@ -41,7 +41,7 @@ class App extends React.Component {
             </a>
           </div>
           <div className="App-header-description">
-            （開発中）1時間で投稿が自動削除されるSNS
+            （開発中）
           </div>
         </header>
         <BrowserRouter>
