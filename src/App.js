@@ -57,7 +57,12 @@ class App extends React.Component {
 
     const judge = () => {
       if (!this.state.checked_signin) {
-        return <div>ログイン状態を確認中です。少々お待ち下さい。</div>
+        return (
+          <div>
+            ログイン状態を確認中です。<br />
+            少々お待ち下さい。（数秒かかることがあります）
+          </div>
+        )
       }
 
       return this.state.user ? timeLinePage : signInPage
