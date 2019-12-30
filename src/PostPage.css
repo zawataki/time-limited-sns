@@ -1,0 +1,30 @@
+.PostPage {
+  display: block;
+}
+
+.PostPage textarea {
+  resize: none;
+  width: 100%;
+  font-size: 18px;
+  background-color: inherit;
+  caret-color: white;
+  border: none;
+  color: white;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.PostPage :disabled {
+  filter: brightness(65%);
+}
+
+.PostPage-post-button button {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  background-color: #1da1f2;
+  margin: 0 0 0 auto;
+  display: block;
+}

@@ -21,3 +21,26 @@
 .Post-timestamp {
   color: #8896A6;
 }
+
+.Timeline button {
+  font-size: 15px;
+}
+
+.Timeline-post-button {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.Timeline-post-button button {
+  font-size: 1.2em;
+  font-weight: bold;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  background-color: #1da1f2;
+}

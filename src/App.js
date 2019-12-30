@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import UserProfile from './UserProfile';
 import firebase from "./firebase";
 import SignIn from './SignIn';
+import PostPage from './PostPage';
 
 class App extends React.Component {
   state = {
@@ -49,6 +50,7 @@ class App extends React.Component {
           <main className="App-main">
             <Route exact path='/time-limited-sns/' component={Timeline} />
             <Route exact path='/time-limited-sns/users/:id' component={UserProfile} />
+            <Route exact path='/time-limited-sns/compose/post/' component={PostPage} />
           </main>
         </BrowserRouter>
       </div>

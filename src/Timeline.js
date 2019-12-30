@@ -69,7 +69,16 @@ class Timeline extends React.Component {
         list.push(<Post key={post.id} post={post} />);
       }
 
-      return list;
+      return (
+        <div>
+          <div className='Timeline-post-button'>
+            <NavLink className="Timeline-post-button" to='/time-limited-sns/compose/post/'>
+              <button>投稿</button>
+            </NavLink>
+          </div>
+          {list}
+        </div>
+      );
     }
   }
 }
