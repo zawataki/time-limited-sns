@@ -1,17 +1,20 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import 'firebase/analytics'
 import 'firebase/firestore'
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCG5BJZZBFgcQWGBqRJhDaNz8ewexFRYkc",
-  authDomain: "fir-sample-95184.firebaseapp.com",
-  databaseURL: "https://fir-sample-95184.firebaseio.com",
-  projectId: "fir-sample-95184",
-  storageBucket: "fir-sample-95184.appspot.com",
-  messagingSenderId: "848826544523",
-  appId: "1:848826544523:web:5a70d96c03d2a91e093f8e"
+  apiKey: "AIzaSyCHftesHfgg_vO29DkbpUbLOZYn4q9JpKM",
+  authDomain: "mayfly-86915.firebaseapp.com",
+  databaseURL: "https://mayfly-86915.firebaseio.com",
+  projectId: "mayfly-86915",
+  storageBucket: "mayfly-86915.appspot.com",
+  messagingSenderId: "490409158667",
+  appId: "1:490409158667:web:bf0ec8a4625217dc61ff0e",
+  measurementId: "G-G211MXL861"
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 export default firebase
