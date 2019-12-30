@@ -35,19 +35,18 @@ class App extends React.Component {
         <header className="App-header">
           <div>
             <a className="App-link" href="/time-limited-sns/">
-              カゲロウ
+              カゲロウ（開発中）
             </a>
           </div>
-          <div className="App-header-description">
-            （開発中）
+          <div>
+            <img src={this.state.user && this.state.user.photoURL} alt='profile'></img>
+          </div>
+          <div className="App-header-signout-button">
+            <button onClick={this.signOut}>ログアウト</button>
           </div>
         </header>
         <BrowserRouter>
           <main className="App-main">
-            {/* TODO: Delete the username below */}
-            <img src={this.state.user && this.state.user.photoURL} alt='profile'></img>
-            {this.state.user && this.state.user.displayName}
-            <button onClick={this.signOut}>ログアウト</button>
             <Route exact path='/time-limited-sns/' component={Timeline} />
             <Route exact path='/time-limited-sns/users/:id' component={UserProfile} />
           </main>
