@@ -4,6 +4,8 @@ import moment from 'moment-timezone';
 import { NavLink } from "react-router-dom";
 import firebase from "./firebase";
 
+const db = firebase.firestore();
+
 function Post(props) {
   let post = props.post;
   let timestamp = post.postedAt.tz("Asia/Tokyo")
@@ -40,7 +42,7 @@ class Timeline extends React.Component {
 
   componentDidMount() {
     let currentComponent = this;
-    const db = firebase.firestore();
+
     db.collection("posted-contents")
       .where('postedAt', '>=', moment().subtract(1, 'hours').toDate())
       .orderBy("postedAt", "desc")
