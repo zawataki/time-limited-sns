@@ -19,6 +19,16 @@
   font-size: 20px;
 }
 
+.UserProfile-edit-button button {
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  background-color: #1da1f2;
+  right: 0;
+}
+
 .UserProfile-posted-contents {
   overflow-y: scroll;
   font-size: 20px;

@@ -6,6 +6,7 @@ import UserProfile from './UserProfile';
 import firebase from "./firebase";
 import SignIn from './SignIn';
 import PostPage from './PostPage';
+import ProfileEdit from './ProfileEdit';
 
 class App extends React.Component {
   state = {
@@ -51,6 +52,7 @@ class App extends React.Component {
             <Route exact path='/time-limited-sns/' component={Timeline} />
             <Route exact path='/time-limited-sns/users/:id' component={UserProfile} />
             <Route exact path='/time-limited-sns/compose/post/' component={PostPage} />
+            <Route exact path='/time-limited-sns/settings/profile/' component={ProfileEdit} />
           </main>
         </BrowserRouter>
       </div>

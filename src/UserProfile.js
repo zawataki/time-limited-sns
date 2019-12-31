@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from "./firebase";
 import './UserProfile.css';
 import moment from 'moment-timezone';
+import { NavLink } from 'react-router-dom';
 
 const db = firebase.firestore();
 
@@ -44,13 +45,14 @@ class UserProfile extends React.Component {
           throw new Error("ユーザが見つかりません");
         }
 
+        const tmpUser = this.state.user;
+        tmpUser.name = userSnapshot.data().name;
+        tmpUser.photoURL = userSnapshot.data().photoURL
+          .replace('normal.jpg', '200x200.jpg');
+
         this.setState({
           isUserProfileLoaded: true,
-          user: {
-            name: userSnapshot.data().name,
-            photoURL: userSnapshot.data().photoURL
-              .replace('normal.jpg', '200x200.jpg'),
-          }
+          user: tmpUser
         });
 
         this.fetchPostedContentsOfUser(this, userSnapshot.ref);
@@ -116,7 +118,6 @@ class UserProfile extends React.Component {
         element = list.length <= 0 ? <div>まだ投稿がありません。</div> : list;
       }
 
-
       return (
         <div className='UserProfile'>
           <div className='UserProfile-top'>
@@ -124,6 +125,13 @@ class UserProfile extends React.Component {
               <img src={user.photoURL} alt='profile'></img>
             </div>
             <div className='UserProfile-name'>{user.name}</div>
+            {user.id === firebase.auth().currentUser.uid ?
+              <div className="UserProfile-edit-button">
+                <NavLink className="UserProfile-edit-button" to='/time-limited-sns/settings/profile/'>
+                  <button>プロフィールを編集</button>
+                </NavLink>
+              </div> :
+              ""}
           </div>
           <div className='UserProfile-posted-contents'>
             {element}
