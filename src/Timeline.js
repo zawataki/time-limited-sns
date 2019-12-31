@@ -42,6 +42,7 @@ class Timeline extends React.Component {
     let currentComponent = this;
     const db = firebase.firestore();
     db.collection("posted-contents")
+      .where('postedAt', '>=', moment().subtract(1, 'hours').toDate())
       .orderBy("postedAt", "desc")
       // TODO Get old posted contents after scrolling down to the most bottom
       .limit(20)
