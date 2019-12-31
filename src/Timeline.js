@@ -26,6 +26,8 @@ function Post(props) {
   );
 }
 
+const cachedUsers = new Map();
+
 class Timeline extends React.Component {
   constructor(props) {
     super(props);
@@ -46,24 +48,41 @@ class Timeline extends React.Component {
       .get()
       .then(function (querySnapshot) {
 
-        const posts = querySnapshot.docs.map(doc => {
-          // doc.data() is never undefined for query doc snapshots
+        Promise.all(querySnapshot.docs.map(async (doc) => {
+          const authorID = doc.data().author.id;
+          const cachedUserName = cachedUsers.get(authorID);
+          let author;
+          if (cachedUserName !== undefined) {
+            author = {
+              id: authorID,
+              name: cachedUserName
+            };
+          } else {
+            const authorInRepository = await doc.data().author.get();
+            author = {
+              id: authorInRepository.id,
+              name: authorInRepository.data().name
+            };
+          }
+
+          cachedUsers.set(author.id, author.name);
+
           return {
             id: doc.id,
             content: doc.data().body,
             postedAt: moment.unix(doc.data().postedAt.seconds),
             author: {
-              id: doc.data().authorID,
-              // TODO Set correct name
-              name: doc.data().authorID[0] + "さん"
+              id: author.id,
+              name: author.name
             },
           };
-        });
-
-        currentComponent.setState({
-          isLoaded: true,
-          posts
-        });
+        }))
+          .then(function (posts) {
+            currentComponent.setState({
+              isLoaded: true,
+              posts
+            });
+          });
       })
       .catch(function (error) {
         console.log("Error getting documents: ", error);
@@ -94,7 +113,7 @@ class Timeline extends React.Component {
               <button>投稿</button>
             </NavLink>
           </div>
-          {list}
+          {list.length <= 0 ? <div>まだ投稿がありません。</div> : list}
         </div>
       );
     }

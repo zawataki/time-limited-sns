@@ -33,11 +33,11 @@ class PostPage extends React.Component {
     db.collection("posted-contents").add({
       body: this.state.body,
       postedAt: firebase.firestore.FieldValue.serverTimestamp(),
-      authorID: firebase.auth().currentUser.uid,
+      author: db.collection("users").doc(firebase.auth().currentUser.uid),
     })
       .then(function (docRef) {
         console.log("Document written with ID: ", docRef.id);
-        alert("投稿しました");
+        alert("投稿してくれてありがとうございます！");
         window.history.back();
       })
       .catch(function (error) {
