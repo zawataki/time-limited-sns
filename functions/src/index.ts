@@ -24,7 +24,7 @@ export const deleteUserFromFirestore = func.auth.user()
     const userInRepository = await usersCollectionRef.doc(user.uid).get();
 
     if (!userInRepository.exists) {
-      console.error('A user, whose auth was deleted, not found in firestore', user);
+      console.error(new Error(`A user, whose auth was deleted, not found in firestore. ${user}`));
       return;
     }
 
