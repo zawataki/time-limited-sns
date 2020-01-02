@@ -28,10 +28,6 @@ class App extends React.Component {
   }
 
   render() {
-    const signInPage = (
-      <SignIn />
-    );
-
     const timeLinePage = (
       <div>
         <header className="App-header">
@@ -68,7 +64,7 @@ class App extends React.Component {
         )
       }
 
-      return this.state.user ? timeLinePage : signInPage
+      return this.state.user ? timeLinePage : <SignIn />
     }
 
     return (
