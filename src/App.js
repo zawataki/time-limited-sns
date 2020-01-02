@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Timeline from "./Timeline";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import UserProfile from './UserProfile';
 import firebase from "./firebase";
 import SignIn from './SignIn';
@@ -30,20 +30,20 @@ class App extends React.Component {
   render() {
     const timeLinePage = (
       <div>
-        <header className="App-header">
-          <div>
-            <a className="App-link" href="/time-limited-sns/">
-              カゲロウ（開発中）
-            </a>
-          </div>
-          <div>
-            <img src={this.state.user && this.state.user.photoURL} alt='profile'></img>
-          </div>
-          <div className="App-header-signout-button">
-            <button onClick={this.signOut}>ログアウト</button>
-          </div>
-        </header>
         <BrowserRouter>
+          <header className="App-header">
+            <div>
+              <NavLink className="App-link" to='/time-limited-sns/'>
+                カゲロウ（開発中）
+              </NavLink>
+            </div>
+            <div>
+              <img src={this.state.user?.photoURL} alt='profile'></img>
+            </div>
+            <div className="App-header-signout-button">
+              <button onClick={this.signOut}>ログアウト</button>
+            </div>
+          </header>
           <main className="App-main">
             <Route exact path='/time-limited-sns/' component={Timeline} />
             <Route exact path='/time-limited-sns/users/:id' component={UserProfile} />
