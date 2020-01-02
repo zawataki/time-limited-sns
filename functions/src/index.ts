@@ -32,3 +32,25 @@ export const deleteUserFromFirestore = func.auth.user()
     const writeResult = await userInRepository.ref.delete();
     console.log(`A user with document ID '${userInRepository.id}' was deleted from firestore at ${writeResult.writeTime.toDate()}'`);
   });
+
+
+export const syncUserInFireStoreWithAuthentication = func.firestore
+  .document('users/{userId}')
+  .onUpdate((change, context) => {
+    const updatedUser = change.after.data();
+    if (updatedUser === undefined) {
+      console.error(`The user after update doesn't exist. UserID: ${context.params.userId}`);
+      return;
+    }
+
+    admin.auth().updateUser(context.params.userId, {
+      displayName: updatedUser.name,
+      photoURL: updatedUser.photoURL
+    })
+      .then(user => {
+        console.log("Updated the user in auth. uid: " + user.uid);
+      })
+      .catch(err => {
+        console.error(new Error(`Failed to update the user in auth. ${err}`));
+      });
+  });
