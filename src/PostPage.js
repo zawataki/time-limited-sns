@@ -36,8 +36,6 @@ class PostPage extends React.Component {
       author: db.collection("users").doc(firebase.auth().currentUser.uid),
     })
       .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-        alert("投稿してくれてありがとうございます！");
         window.history.back();
       })
       .catch(function (error) {
