@@ -14,14 +14,14 @@ function Post(props) {
   return (
     <article id={post.id} className="Post">
       <div className="Post-username-timestamp">
-        <div>
-          <NavLink className="Post-username"
-            to={'/time-limited-sns/users/' + post.author.id}>
-            {post.author.name}
-          </NavLink>
-        </div>
-        <div className="Post-timestamp">　·　</div>
-        <div className="Post-timestamp">{timestamp}</div>
+        <NavLink className="Post-username"
+          to={'/time-limited-sns/users/' + post.author.id}>
+          <div>
+            <img src={post.author.profilePictureURL} alt="profile"></img>
+          </div>
+          {post.author.name}
+        </NavLink>
+        <span className="Post-timestamp">　·　{timestamp}</span>
       </div>
       <div>{post.content}</div>
     </article>
@@ -53,31 +53,33 @@ class Timeline extends React.Component {
 
         Promise.all(querySnapshot.docs.map(async (doc) => {
           const authorID = doc.data().author.id;
-          const cachedUserName = cachedUsers.get(authorID);
+          const cachedUser = cachedUsers.get(authorID);
           let author;
-          if (cachedUserName !== undefined) {
+          if (cachedUser !== undefined) {
             author = {
               id: authorID,
-              name: cachedUserName
+              name: cachedUser.name,
+              profilePictureURL: cachedUser.profilePictureURL,
             };
           } else {
             const authorInRepository = await doc.data().author.get();
             author = {
               id: authorInRepository.id,
-              name: authorInRepository.data().name
+              name: authorInRepository.data().name,
+              profilePictureURL: authorInRepository.data().profilePictures.small,
             };
           }
 
-          cachedUsers.set(author.id, author.name);
+          cachedUsers.set(author.id, {
+            name: author.name,
+            profilePictureURL: author.profilePictureURL
+          });
 
           return {
             id: doc.id,
             content: doc.data().body,
             postedAt: moment.unix(doc.data().postedAt.seconds),
-            author: {
-              id: author.id,
-              name: author.name
-            },
+            author: author,
           };
         }))
           .then(function (posts) {
