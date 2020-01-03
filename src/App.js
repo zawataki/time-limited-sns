@@ -10,14 +10,14 @@ import ProfileEdit from './ProfileEdit';
 
 class App extends React.Component {
   state = {
-    user: null,
+    loggedInUser: null,
     checked_signin: false
   }
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       this.setState({
-        user: user,
+        loggedInUser: user,
         checked_signin: true
       })
     })
@@ -38,7 +38,9 @@ class App extends React.Component {
               </NavLink>
             </div>
             <div>
-              <img src={this.state.user?.photoURL} alt='profile'></img>
+              <NavLink to='/time-limited-sns/settings/profile/'>
+                <img src={this.state.loggedInUser?.photoURL} alt='profile'></img>
+              </NavLink>
             </div>
             <div className="App-header-signout-button">
               <button onClick={this.signOut}>ログアウト</button>
@@ -64,7 +66,7 @@ class App extends React.Component {
         )
       }
 
-      return this.state.user ? timeLinePage : <SignIn />
+      return this.state.loggedInUser ? timeLinePage : <SignIn />
     }
 
     return (

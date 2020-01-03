@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
       user: {
         id: props.match.params.id,
         name: "",
-        photoURL: "",
+        profilePictureMiddle: "",
       },
       posts: []
     };
@@ -47,8 +47,8 @@ class UserProfile extends React.Component {
 
         const tmpUser = this.state.user;
         tmpUser.name = userSnapshot.data().name;
-        tmpUser.photoURL = userSnapshot.data().photoURL
-          .replace('normal.jpg', '200x200.jpg');
+        tmpUser.profilePictureMiddle =
+          userSnapshot.data().profilePictures.middle;
 
         this.setState({
           isUserProfileLoaded: true,
@@ -122,7 +122,7 @@ class UserProfile extends React.Component {
         <div className='UserProfile'>
           <div className='UserProfile-top'>
             <div className='UserProfile-photo'>
-              <img src={user.photoURL} alt='profile'></img>
+              <img src={user.profilePictureMiddle} alt='profile'></img>
             </div>
             <div className='UserProfile-name'>{user.name}</div>
             {user.id === firebase.auth().currentUser.uid ?

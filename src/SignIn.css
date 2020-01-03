@@ -22,13 +22,9 @@
 
 .SignIn-button button {
   font-size: 1.2em;
-  font-weight: bold;
-  border-radius: 15px;
+  border-radius: 40px;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
-  border: none;
-  color: white;
-  background-color: #1da1f2;
 }

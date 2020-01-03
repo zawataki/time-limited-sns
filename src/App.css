@@ -6,6 +6,15 @@
   font-family: Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
+.App button {
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  background-color: #1da1f2;
+}
+
 .App-header {
   position: sticky;
   top: 0;
@@ -14,7 +23,7 @@
   border-bottom: rgb(56, 68, 77) solid 1px;
   padding: 7px;
   z-index: 999;
-  background-color: #282c34;
+  background-color: #16202C;
 }
 
 .App-header > div {
@@ -26,15 +35,7 @@
 .App-header img {
   max-width: 100%;
   max-height: 100%;
-}
-
-.App-header-signout-button button {
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 15px;
-  border: none;
-  color: white;
-  background-color: #1da1f2;
+  border-radius: 50%;
 }
 
 .App-main {
