@@ -38,7 +38,7 @@ class App extends React.Component {
               </NavLink>
             </div>
             <div>
-              <NavLink to='/time-limited-sns/settings/profile/'>
+              <NavLink to={'/time-limited-sns/users/' + this.state.loggedInUser?.uid}>
                 <img src={this.state.loggedInUser?.photoURL} alt='profile'></img>
               </NavLink>
             </div>
