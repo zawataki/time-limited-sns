@@ -5,7 +5,7 @@ import InputFiles from 'react-input-files';
 import jimp from 'jimp';
 import Jimp from 'jimp';
 import { promisify } from 'util';
-import iconUuploadImage from './icon/upload-image.svg';
+import iconUploadImage from './icon/upload-image.svg';
 
 const db = firebase.firestore();
 const storageRef = firebase.storage().ref();
@@ -164,7 +164,7 @@ class ProfileEdit extends React.Component {
                     this.state.profilePictureURL
                 } alt='profile'>
                 </img>
-                <img className='ProfileEdit-upload-icon' src={iconUuploadImage} alt='upload'></img>
+                <img className='ProfileEdit-upload-icon' src={iconUploadImage} alt='upload'></img>
               </InputFiles>
             </div>
             <div className='ProfileEdit-text'>
