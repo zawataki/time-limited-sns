@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Timeline.css';
 import moment from 'moment-timezone';
 import { NavLink } from "react-router-dom";
 import firebase from "./firebase";
+import iconDeleteMessage from './icon/delete-message.svg';
 
 const db = firebase.firestore();
 
@@ -11,8 +12,20 @@ function Post(props) {
   let timestamp = post.postedAt.tz("Asia/Tokyo")
     .format('YYYY-MM-DD HH:mm:ss');
 
+  const [deleted, setDeleted] = useState(false);
+
+  const confirmDeletionMessage = async () => {
+    const agreedWithDeletion = window.confirm("メッセージを削除しますか？");
+    if (agreedWithDeletion) {
+      await db.collection("posted-contents").doc(post.id).delete();
+      setDeleted(true);
+    }
+  };
+
   return (
-    <article id={post.id} className="Post">
+    <article id={post.id} className="Post" style={{
+      display: `${deleted ? 'none' : ''}`
+    }}>
       <div className="Post-username-timestamp">
         <NavLink className="Post-username"
           to={'/time-limited-sns/users/' + post.author.id}>
@@ -22,6 +35,12 @@ function Post(props) {
           {post.author.name}
         </NavLink>
         <span className="Post-timestamp">　·　{timestamp}</span>
+        {
+          post.author.id === firebase.auth().currentUser.uid ?
+            <img className="Post-delete-icon" src={iconDeleteMessage}
+              alt="delete" onClick={confirmDeletionMessage}></img> :
+            ''
+        }
       </div>
       <div>{post.content}</div>
     </article>

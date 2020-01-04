@@ -37,6 +37,12 @@
   color: #8896A6;
 }
 
+.Post-delete-icon {
+  max-width: auto;
+  max-height: 55%;
+  margin: 0 0 0 auto;
+}
+
 .Timeline button {
   font-size: 15px;
 }
