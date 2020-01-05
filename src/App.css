@@ -2,17 +2,17 @@
   text-align: left;
   display: block;
   color: white;
-  font-size: 15px;
   font-family: Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, メイリオ, Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
 .App button {
-  font-size: 15px;
   font-weight: bold;
-  border-radius: 15px;
-  border: none;
+  font-size: 14px;
   color: white;
+  border: none;
+  border-radius: 15px;
   background-color: #1da1f2;
+  padding: 3px 14px;
 }
 
 .App-header {
@@ -42,14 +42,13 @@
   position: relative;
   display: block;
   overflow-y: scroll;
-  padding: 5px;
 }
 
 .App-link {
   color: white;
   text-decoration: none;
   font-weight: bold;
-  font-size: larger;
+  font-size: 18px;
 }
 
 .App-link:hover {

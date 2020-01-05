@@ -3,23 +3,9 @@ import firebase from "./firebase";
 import './UserProfile.css';
 import moment from 'moment-timezone';
 import { NavLink } from 'react-router-dom';
+import PostedMessage from './PostedMessage';
 
 const db = firebase.firestore();
-
-function Post(props) {
-  let post = props.post;
-  let timestamp = post.postedAt.tz("Asia/Tokyo")
-    .format('YYYY-MM-DD HH:mm:ss');
-
-  return (
-    <article id={post.id} className="Post">
-      <div className="Post-username-timestamp">
-        <div className="Post-timestamp">{timestamp}</div>
-      </div>
-      <div>{post.content}</div>
-    </article>
-  );
-}
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -81,6 +67,11 @@ class UserProfile extends React.Component {
             id: doc.id,
             content: doc.data().body,
             postedAt: moment.unix(doc.data().postedAt.seconds),
+            author: {
+              id: currentComponent.state.user.id,
+              name: currentComponent.state.user.name,
+              profilePictureURL: currentComponent.state.user.profilePictureMiddle,
+            },
           };
         }))
           .then(function (posts) {
@@ -113,7 +104,7 @@ class UserProfile extends React.Component {
       } else {
         const list = [];
         for (const post of this.state.posts) {
-          list.push(<Post key={post.id} post={post} />);
+          list.push(<PostedMessage key={post.id} post={post} />);
         }
         element = list.length <= 0 ? <div>まだ投稿がありません。</div> : list;
       }

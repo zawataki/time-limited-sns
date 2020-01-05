@@ -55,7 +55,7 @@ class PostPage extends React.Component {
         </div>
         <div className='PostPage-post-button'>
           <button onClick={this.postMessage}
-            disabled={this.state.postButtonDisabled}>投稿する</button>
+            disabled={this.state.postButtonDisabled}>投稿</button>
         </div>
       </div>
     );

@@ -153,9 +153,9 @@ class ProfileEdit extends React.Component {
       return (
         <div className='ProfileEdit'>
           <div>
-            <h2>
+            <h1>
               プロフィール編集
-            </h2>
+            </h1>
             <div className='ProfileEdit-image-area'>
               <InputFiles accept='image/jpeg' onChange={this.onUploadedImage}>
                 <img className='ProfileEdit-profile-img' src={
