@@ -37,7 +37,7 @@ export const deleteUserFromFirestore = funcWithRegion.auth.user()
   });
 
 
-// TODO Call regularly this function from GitHub Actions. See https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
+// TODO Call regularly this function from CI such as GitHub Actions. See https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
 export const deleteOldPostedContents = funcWithRegion.https
   .onRequest(async (request, response) => {
     if (request.method !== "POST") {
