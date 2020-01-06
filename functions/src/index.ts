@@ -15,7 +15,10 @@ export const registerUserToFirestore = funcWithRegion.auth.user()
   .onCreate(async (user) => {
     await usersCollectionRef.doc(user.uid).create({
       name: user.displayName,
-      photoURL: user.photoURL,
+      profilePictures: {
+        small: user.photoURL,
+        middle: user.photoURL?.replace('normal.jpg', '200x200.jpg'),
+      },
     });
 
     console.log(`A new user with document ID '${user.uid}' was added`);
@@ -27,8 +30,7 @@ export const deleteUserFromFirestore = funcWithRegion.auth.user()
     const userInRepository = await usersCollectionRef.doc(user.uid).get();
 
     if (!userInRepository.exists) {
-      console.error(new Error(`A user, whose auth was deleted, not found in firestore. ${user}`));
-      return;
+      throw new Error(`A user deleted from auth not found in firestore. ${user}`);
     }
 
     console.log(`Delete user ${userInRepository.id} => ${userInRepository.data()}`);
@@ -64,4 +66,21 @@ export const deleteOldPostedContents = funcWithRegion.https
     });
 
     response.send('Old posted contents were deleted');
+  });
+
+
+export const syncUserInFireStoreWithAuthentication = func.firestore
+  .document('users/{userId}')
+  .onUpdate(async (change, context) => {
+    const userId = context.params.userId;
+    const updatedUser = change.after.data();
+    if (updatedUser === undefined) {
+      throw new Error(`The user after update doesn't exist. UserID: ${userId}`);
+    }
+
+    const user = await admin.auth().updateUser(userId, {
+      displayName: updatedUser.name,
+      photoURL: updatedUser.profilePictures.small
+    });
+    console.log("Updated the user in auth. uid: " + user.uid);
   });

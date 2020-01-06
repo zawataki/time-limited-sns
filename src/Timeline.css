@@ -1,46 +1,15 @@
-.Post {
-  padding: 10px;
-  border-bottom: rgb(56, 68, 77) solid 1px;
-}
-
-.Post-username-timestamp {
-  display: flex;
-  flex-direction: row;
-}
-
-.Post-username {
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-.Post-username:hover {
-  text-decoration: underline;
-}
-
-.Post-timestamp {
-  color: #8896A6;
-}
-
-.Timeline button {
-  font-size: 15px;
-}
-
 .Timeline-post-button {
   position: fixed;
   right: 0;
   bottom: 0;
   margin-right: 15px;
   margin-bottom: 15px;
+  z-index: 10;
 }
 
 .Timeline-post-button button {
-  font-size: 1.2em;
-  font-weight: bold;
-  height: 60px;
-  width: 60px;
+  font-size: 16px;
+  height: 55px;
+  width: 55px;
   border-radius: 50%;
-  border: none;
-  color: white;
-  background-color: #1da1f2;
 }

@@ -1,0 +1,28 @@
+.UserProfile {
+  padding: 5px;
+}
+
+.UserProfile-top {
+  display: flex;
+  border-bottom: rgb(56, 68, 77) solid 1px;
+}
+
+.UserProfile-top > div {
+  padding: 5px;
+}
+
+.UserProfile-photo img {
+  width: 65px;
+}
+
+.UserProfile-name {
+  font-size: 18px;
+}
+
+.UserProfile-edit-button button {
+  right: 0;
+}
+
+.UserProfile-posted-contents {
+  overflow-y: scroll;
+}

@@ -1,0 +1,64 @@
+.ProfileEdit {
+  display: block;
+}
+
+.ProfileEdit h1 {
+  font-size: 18px;
+}
+
+.ProfileEdit :disabled {
+  filter: brightness(65%);
+}
+
+.ProfileEdit-image-area {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 85px;
+  height: 85px;
+  margin: 10px;
+  position: relative;
+}
+
+.ProfileEdit-profile-img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(65%);
+}
+
+.ProfileEdit-upload-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 40%;
+}
+
+.ProfileEdit-image-area input[type=file] {
+  opacity: 1; /* TODO Change to 0 */
+  z-index: 100;
+  position: absolute;
+  top: 30%;
+}
+
+.ProfileEdit-text  {
+  background-color: #192734;
+  /* caret-color: white; */
+  border: none;
+  border-bottom: 1px, gray;
+  color: white;
+  box-sizing: border-box;
+}
+
+.ProfileEdit input {
+  z-index: auto;
+  background-color: inherit;
+  color: white;
+  border: none;
+}
+
+.ProfileEdit-save-button button {
+  margin: 0 0 0 auto;
+  display: block;
+}
