@@ -8,10 +8,10 @@ import * as moment from 'moment';
 // https://firebase.google.com/docs/functions/typescript
 
 admin.initializeApp();
-const funcWithRegion = functions.region('asia-northeast1');
+const func = functions.region('asia-northeast1');
 const usersCollectionRef = admin.firestore().collection('users');
 
-export const registerUserToFirestore = funcWithRegion.auth.user()
+export const registerUserToFirestore = func.auth.user()
   .onCreate(async (user) => {
     await usersCollectionRef.doc(user.uid).create({
       name: user.displayName,
@@ -25,7 +25,7 @@ export const registerUserToFirestore = funcWithRegion.auth.user()
   });
 
 
-export const deleteUserFromFirestore = funcWithRegion.auth.user()
+export const deleteUserFromFirestore = func.auth.user()
   .onDelete(async (user) => {
     const userInRepository = await usersCollectionRef.doc(user.uid).get();
 
@@ -39,7 +39,7 @@ export const deleteUserFromFirestore = funcWithRegion.auth.user()
   });
 
 
-export const deleteOldPostedContents = funcWithRegion.https
+export const deleteOldPostedContents = func.https
   .onRequest(async (request, response) => {
     if (request.method !== "POST") {
       response.sendStatus(405);
