@@ -37,7 +37,6 @@ export const deleteUserFromFirestore = funcWithRegion.auth.user()
   });
 
 
-// TODO Call regularly this function from CI such as GitHub Actions. See https://help.github.com/ja/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
 export const deleteOldPostedContents = funcWithRegion.https
   .onRequest(async (request, response) => {
     if (request.method !== "POST") {
@@ -45,17 +44,13 @@ export const deleteOldPostedContents = funcWithRegion.https
       return;
     }
 
-    // TODO Authorize request sender
-    /* 参考:
-      - ヒントとアドバイス  |  Firebase: https://firebase.google.com/docs/functions/tips?hl=ja
-      - Call functions via HTTP requests  |  Firebase: https://firebase.google.com/docs/functions/http-events
-      - functions-samples/index.js at master · firebase/functions-samples: https://github.com/firebase/functions-samples/blob/master/authenticated-json-api/functions/index.js
-      - functions-samples/authorized-https-endpoint at master · firebase/functions-samples: https://github.com/firebase/functions-samples/tree/master/authorized-https-endpoint
-      - functions-samples/index.js at master · firebase/functions-samples: https://github.com/firebase/functions-samples/blob/master/quickstarts/time-server/functions/index.js
-      - functions-samples/index.js at master · firebase/functions-samples: https://github.com/firebase/functions-samples/blob/master/quickstarts/big-ben/functions/index.js
-     */
+    if (request.headers.authorization !== `Bearer ${functions.config().api.authorized_token}`) {
+      response.sendStatus(401);
+      return;
+    }
+
     const snapshot = await admin.firestore().collection('posted-contents')
-      .where('postedAt', '>=', moment().subtract(1, 'hours').toDate())
+      .where('postedAt', '<', moment().subtract(1, 'hours').toDate())
       .get();
 
     if (snapshot.empty) {
