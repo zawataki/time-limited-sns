@@ -31,7 +31,8 @@ jobs:
       - image: circleci/node:12
     working_directory: ~/repo
     steps:
-      - run: curl -X POST -H "Authorization: Bearer ${API_ACCESS_TOKEN}" "$API_URL" -v
+      - run: |
+        curl -X POST -H "Authorization: Bearer ${API_ACCESS_TOKEN}" "$API_URL"
 
 workflows:
   version: 2
