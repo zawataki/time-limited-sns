@@ -42,7 +42,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "0 */6 * * *" # Timezone is UTC
+          cron: "0 0 * * *" # Timezone is UTC
           filters:
             branches:
               only:
