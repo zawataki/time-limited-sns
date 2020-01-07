@@ -45,7 +45,7 @@ workflows:
           cron: "0 */6 * * *" # Timezone is UTC
           filters:
             branches:
-            only:
-              - master
+              only:
+                - master
     jobs:
       - delete_old_contents
