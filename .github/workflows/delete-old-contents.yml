@@ -1,8 +1,8 @@
 name: Delete old contents
 
-on: [push]
-#   schedule:
-#     - cron: '*/5 * * * *'
+on:
+  schedule:
+    - cron: '* */2 * * *'
 
 jobs:
   build:
@@ -13,4 +13,4 @@ jobs:
           API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
           API_URL: ${{ secrets.API_URL }}
         run: |
-          curl -X POST -H "Authorization: Bearer $API_ACCESS_TOKEN" --fail $API_URL
+          curl -s -X POST -H "Authorization: Bearer $API_ACCESS_TOKEN" --fail $API_URL
