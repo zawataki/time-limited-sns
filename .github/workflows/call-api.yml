@@ -11,7 +11,7 @@ jobs:
     - name: Test
       uses: wei/curl@v1
       env:
-        API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
+        API_ACCESS_TOKEN: "Authorization: Bearer ${{ secrets.API_ACCESS_TOKEN }}"
         API_URL: ${{ secrets.API_URL }}
       with:
-        args: "-X POST -H \"Authorization: Bearer $API_ACCESS_TOKEN\" \"$API_URL\" "
+        args: "-X POST $API_URL -H $API_ACCESS_TOKEN "
