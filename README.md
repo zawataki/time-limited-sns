@@ -1,4 +1,3 @@
-[![CircleCI](https://circleci.com/gh/zawataki/time-limited-sns.svg?style=svg)](https://circleci.com/gh/zawataki/time-limited-sns)
 [![Node CI - GitHub Actions](https://github.com/zawataki/time-limited-sns/workflows/Node%20CI/badge.svg)](https://github.com/zawataki/time-limited-sns/actions?query=workflow%3A%22Node+CI%22)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
