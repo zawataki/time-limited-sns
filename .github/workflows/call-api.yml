@@ -10,5 +10,8 @@ jobs:
     steps:
     - name: Test
       uses: wei/curl@v1
+      env:
+        API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
+        API_URL: ${{ secrets.API_URL }}
       with:
-        args: -X POST https://httpbin.org/post
+        args: '-X POST -H "Authorization: Bearer ${API_ACCESS_TOKEN}" "$API_URL"'
