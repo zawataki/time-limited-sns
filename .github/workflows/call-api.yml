@@ -14,8 +14,6 @@ jobs:
         run: |
           echo "Authorization: Bearer $API_ACCESS_TOKEN" > /tmp/api-header
       - name: Test
-        uses: wei/curl@v1
         env:
           API_URL: ${{ secrets.API_URL }}
-        with:
-          args: -X POST -H @/tmp/api-header --fail $API_URL
+        run: curl -X POST -H @/tmp/api-header --fail $API_URL
