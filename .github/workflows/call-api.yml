@@ -1,4 +1,4 @@
-name: Call API
+name: Delete old contents
 
 on: [push]
 #   schedule:
@@ -8,12 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Write API header to text
+      - name: Call API to delete old contents
         env:
           API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
-        run: |
-          echo "Authorization: Bearer $API_ACCESS_TOKEN" > /tmp/api-header
-      - name: Test
-        env:
           API_URL: ${{ secrets.API_URL }}
-        run: curl -X POST -H @/tmp/api-header --fail $API_URL
+        run: |
+          curl -X POST -H "Authorization: Bearer $API_ACCESS_TOKEN" --fail $API_URL
