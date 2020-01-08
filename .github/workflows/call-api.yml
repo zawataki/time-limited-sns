@@ -14,4 +14,4 @@ jobs:
         API_ACCESS_TOKEN: '"Authorization: Bearer ${{ secrets.API_ACCESS_TOKEN }}"'
         API_URL: ${{ secrets.API_URL }}
       with:
-        args: -X POST $API_URL -H $API_ACCESS_TOKEN
+        args: -X POST $API_URL
