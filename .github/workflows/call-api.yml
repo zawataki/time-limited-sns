@@ -8,10 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Test
-      uses: wei/curl@v1
-      env:
-        API_ACCESS_TOKEN: '"Authorization: Bearer ${{ secrets.API_ACCESS_TOKEN }}"'
-        API_URL: ${{ secrets.API_URL }}
-      with:
-        args: -X POST -H $API_ACCESS_TOKEN $API_URL --fail
+      - name: Write API header to text
+        env:
+          API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
+        run: |
+          echo "Authorization: Bearer $API_ACCESS_TOKEN" > /tmp/api-header
+      - name: Test
+        uses: wei/curl@v1
+        env:
+          API_URL: ${{ secrets.API_URL }}
+        with:
+          args: -X POST -H @/tmp/api-header --fail $API_URL
