@@ -1,0 +1,16 @@
+name: test HTTPie
+
+on:
+  schedule:
+    - cron: '*/5 * * *'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Test
+      uses: swinton/httpie.action@1
+      with:
+        args: ["POST", "httpbin.org/anything", "hello=world", "-v"]
