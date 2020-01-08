@@ -13,4 +13,4 @@ jobs:
     - name: Test
       uses: swinton/httpie.action@1
       with:
-        args: ["POST", "httpbin.org/anything", "hello=world", "-v"]
+        args: POST httpbin.org/anything hello=world -v
