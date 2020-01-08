@@ -1,0 +1,16 @@
+name: Delete old contents
+
+on:
+  schedule:
+    - cron: '* */2 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API to delete old contents
+        env:
+          API_ACCESS_TOKEN: ${{ secrets.API_ACCESS_TOKEN }}
+          API_URL: ${{ secrets.API_URL }}
+        run: |
+          curl -s -X POST -H "Authorization: Bearer $API_ACCESS_TOKEN" --fail $API_URL
