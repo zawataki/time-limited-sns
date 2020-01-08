@@ -6,11 +6,9 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Test
-      uses: swinton/httpie.action@1
+      uses: wei/curl@v1
       with:
-        args: POST httpbin.org/anything hello=world -v
+        args: -X POST https://httpbin.org/post
