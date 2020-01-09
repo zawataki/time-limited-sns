@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/time-limited-sns/static/css/main.0e9da989.chunk.css",
-    "main.js": "/time-limited-sns/static/js/main.9f691baf.chunk.js",
-    "main.js.map": "/time-limited-sns/static/js/main.9f691baf.chunk.js.map",
-    "runtime-main.js": "/time-limited-sns/static/js/runtime-main.48111956.js",
-    "runtime-main.js.map": "/time-limited-sns/static/js/runtime-main.48111956.js.map",
-    "static/js/2.9d8b8b68.chunk.js": "/time-limited-sns/static/js/2.9d8b8b68.chunk.js",
-    "static/js/2.9d8b8b68.chunk.js.map": "/time-limited-sns/static/js/2.9d8b8b68.chunk.js.map",
-    "index.html": "/time-limited-sns/index.html",
-    "precache-manifest.6a8a7380d223fbdc9d8843230e07755a.js": "/time-limited-sns/precache-manifest.6a8a7380d223fbdc9d8843230e07755a.js",
-    "service-worker.js": "/time-limited-sns/service-worker.js",
-    "static/css/main.0e9da989.chunk.css.map": "/time-limited-sns/static/css/main.0e9da989.chunk.css.map",
-    "static/js/2.9d8b8b68.chunk.js.LICENSE": "/time-limited-sns/static/js/2.9d8b8b68.chunk.js.LICENSE",
-    "static/media/delete-message.svg": "/time-limited-sns/static/media/delete-message.a4b91b6f.svg",
-    "static/media/upload-image.svg": "/time-limited-sns/static/media/upload-image.f7f24d9a.svg"
+    "main.css": "/static/css/main.c8e8239a.chunk.css",
+    "main.js": "/static/js/main.c43365f2.chunk.js",
+    "main.js.map": "/static/js/main.c43365f2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6aa06d6b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6aa06d6b.js.map",
+    "static/js/2.5ef9b4a0.chunk.js": "/static/js/2.5ef9b4a0.chunk.js",
+    "static/js/2.5ef9b4a0.chunk.js.map": "/static/js/2.5ef9b4a0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c5afae68b0cf862537a76aec3d329c76.js": "/precache-manifest.c5afae68b0cf862537a76aec3d329c76.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.c8e8239a.chunk.css.map": "/static/css/main.c8e8239a.chunk.css.map",
+    "static/js/2.5ef9b4a0.chunk.js.LICENSE": "/static/js/2.5ef9b4a0.chunk.js.LICENSE",
+    "static/media/delete-message.svg": "/static/media/delete-message.a4b91b6f.svg",
+    "static/media/upload-image.svg": "/static/media/upload-image.f7f24d9a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.48111956.js",
-    "static/js/2.9d8b8b68.chunk.js",
-    "static/css/main.0e9da989.chunk.css",
-    "static/js/main.9f691baf.chunk.js"
+    "static/js/runtime-main.6aa06d6b.js",
+    "static/js/2.5ef9b4a0.chunk.js",
+    "static/css/main.c8e8239a.chunk.css",
+    "static/js/main.c43365f2.chunk.js"
   ]
 }
