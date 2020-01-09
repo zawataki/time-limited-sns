@@ -118,7 +118,7 @@ class UserProfile extends React.Component {
             <div className='UserProfile-name'>{user.name}</div>
             {user.id === firebase.auth().currentUser.uid ?
               <div className="UserProfile-edit-button">
-                <NavLink className="UserProfile-edit-button" to='/time-limited-sns/settings/profile/'>
+                <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
                   <button>プロフィールを編集</button>
                 </NavLink>
               </div> :

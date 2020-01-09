@@ -92,7 +92,7 @@ class Timeline extends React.Component {
       return (
         <div>
           <div className='Timeline-post-button'>
-            <NavLink className="Timeline-post-button" to='/time-limited-sns/compose/post/'>
+            <NavLink className="Timeline-post-button" to='/compose/post/'>
               <button>投稿</button>
             </NavLink>
           </div>

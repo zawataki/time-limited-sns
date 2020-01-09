@@ -28,7 +28,7 @@ function PostedMessage(props) {
     }}>
       <div className="Post-user-icon">
         <NavLink className="Post-username"
-          to={'/time-limited-sns/users/' + post.author.id}>
+          to={'/users/' + post.author.id}>
           <img src={post.author.profilePictureURL} alt="profile"></img>
         </NavLink>
       </div>
@@ -36,7 +36,7 @@ function PostedMessage(props) {
         <div className="Post-top-line">
           <div className="Post-top-line-left-side">
             <NavLink className="Post-username"
-              to={'/time-limited-sns/users/' + post.author.id}>
+              to={'/users/' + post.author.id}>
               {post.author.name}
             </NavLink>
             <span className="Post-timestamp">　·　{timestamp}</span>

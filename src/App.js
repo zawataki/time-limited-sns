@@ -33,12 +33,12 @@ class App extends React.Component {
         <BrowserRouter>
           <header className="App-header">
             <div>
-              <NavLink className="App-link" to='/time-limited-sns/'>
+              <NavLink className="App-link" to='/'>
                 カゲロウ（開発中）
               </NavLink>
             </div>
             <div>
-              <NavLink to={'/time-limited-sns/users/' + this.state.loggedInUser?.uid}>
+              <NavLink to={'/users/' + this.state.loggedInUser?.uid}>
                 <img src={this.state.loggedInUser?.photoURL} alt='profile'></img>
               </NavLink>
             </div>
@@ -47,10 +47,10 @@ class App extends React.Component {
             </div>
           </header>
           <main className="App-main">
-            <Route exact path='/time-limited-sns/' component={Timeline} />
-            <Route exact path='/time-limited-sns/users/:id' component={UserProfile} />
-            <Route exact path='/time-limited-sns/compose/post/' component={PostPage} />
-            <Route exact path='/time-limited-sns/settings/profile/' component={ProfileEdit} />
+            <Route exact path='/' component={Timeline} />
+            <Route exact path='/users/:id' component={UserProfile} />
+            <Route exact path='/compose/post/' component={PostPage} />
+            <Route exact path='/settings/profile/' component={ProfileEdit} />
           </main>
         </BrowserRouter>
       </div>
