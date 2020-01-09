@@ -21,6 +21,9 @@ class UserProfile extends React.Component {
       },
       posts: []
     };
+
+    // This binding is necessary to make `this` work in the callback
+    this.confirmDeletionAccount = this.confirmDeletionAccount.bind(this);
   }
 
   componentDidMount() {
@@ -90,6 +93,24 @@ class UserProfile extends React.Component {
       });
   }
 
+  async confirmDeletionAccount() {
+    // TODO Force user to input some word (like "delete") to avoid unintentionally deletion
+    const agreedWithDeletion = window.confirm("アカウントを削除しますか？");
+
+    if (agreedWithDeletion) {
+      try {
+        // TODO Resolve error: "This operation is sensitive and requires recent authentication. Log in again before retrying this request."
+        await firebase.auth().currentUser.delete();
+        window.alert(`今までご利用いただき、ありがとうございました。
+アカウントを削除しました。`);
+        window.location.href = "/";
+      } catch (error) {
+        console.error("Failed to delete account", error);
+        window.alert("アカウントの削除に失敗しました");
+      }
+    }
+  };
+
   render() {
     const { error, isUserProfileLoaded, isUserPostsLoaded, user } = this.state;
     if (error) {
@@ -110,10 +131,15 @@ class UserProfile extends React.Component {
       }
 
       const authUserComponents = (
-        <div className="UserProfile-edit-button">
-          <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
-            <button>プロフィールを編集</button>
-          </NavLink>
+        <div className="UserProfile-menu">
+          <div className="UserProfile-edit-button">
+            <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
+              <button>プロフィールを編集</button>
+            </NavLink>
+          </div>
+          <div className="UserProfile-delete-button">
+            <button onClick={this.confirmDeletionAccount}>アカウントを削除</button>
+          </div>
         </div>
       );
 

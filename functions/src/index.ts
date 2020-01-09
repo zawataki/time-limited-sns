@@ -33,6 +33,8 @@ export const deleteUserFromFirestore = func.auth.user()
       throw new Error(`A user deleted from auth not found in firestore. ${user}`);
     }
 
+    // TODO Delete messages the user posted
+
     console.log(`Delete user ${userInRepository.id} => ${userInRepository.data()}`);
     const writeResult = await userInRepository.ref.delete();
     console.log(`A user with document ID '${userInRepository.id}' was deleted from firestore at ${writeResult.writeTime.toDate()}'`);
