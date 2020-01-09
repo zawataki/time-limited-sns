@@ -109,6 +109,14 @@ class UserProfile extends React.Component {
         element = list.length <= 0 ? <div>まだ投稿がありません。</div> : list;
       }
 
+      const authUserComponents = (
+        <div className="UserProfile-edit-button">
+          <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
+            <button>プロフィールを編集</button>
+          </NavLink>
+        </div>
+      );
+
       return (
         <div className='UserProfile'>
           <div className='UserProfile-top'>
@@ -117,11 +125,7 @@ class UserProfile extends React.Component {
             </div>
             <div className='UserProfile-name'>{user.name}</div>
             {user.id === firebase.auth().currentUser.uid ?
-              <div className="UserProfile-edit-button">
-                <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
-                  <button>プロフィールを編集</button>
-                </NavLink>
-              </div> :
+              authUserComponents :
               ""}
           </div>
           <div className='UserProfile-posted-contents'>
