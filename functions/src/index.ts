@@ -46,7 +46,7 @@ export const deleteOldPostedContents = func.https
       return;
     }
 
-    if (request.headers.authorization !== 'Bearer xxxxxx') {
+    if (request.headers.authorization !== 'Bearer ' + functions.config().api.token) {
       response.sendStatus(401);
       return;
     }
