@@ -21,6 +21,9 @@ class UserProfile extends React.Component {
       },
       posts: []
     };
+
+    // This binding is necessary to make `this` work in the callback
+    this.confirmDeletionAccount = this.confirmDeletionAccount.bind(this);
   }
 
   componentDidMount() {
@@ -90,6 +93,41 @@ class UserProfile extends React.Component {
       });
   }
 
+  async confirmDeletionAccount() {
+    // TODO Force user to input some word (like "delete") to avoid unintentionally deletion
+    const agreedWithDeletion = window.confirm("アカウントを削除しますか？");
+
+    if (agreedWithDeletion) {
+      try {
+        await this.deleteUserAccount();
+      } catch (error) {
+        if (error.code === "auth/requires-recent-login") {
+          window.alert(`アカウントを削除するためにTwitterの再認証が必要です。
+この画面に再び戻ってきた後に改めてアカウントの削除をお試しください。`);
+
+          const user = firebase.auth().currentUser;
+          const authProvider = new firebase.auth.TwitterAuthProvider();
+          await user.reauthenticateWithRedirect(authProvider);
+          return
+        }
+        console.error("Failed to delete account", error);
+        window.alert("アカウントの削除に失敗しました");
+      }
+    }
+  }
+
+  async deleteUserAccount() {
+    console.log("Delete user account");
+    await firebase.auth().currentUser.delete();
+    window.alert(`今までご利用いただき、ありがとうございました。
+アカウント削除が完了しました。
+なお、Twitterのアプリ連携については、Twitter側の制限のため
+お客様自身で解除する必要があります。
+解除するには、このメッセージを消した後に表示されるTwitter画面から
+「アクセス権を取り消す」を実行してください。`);
+    window.location.href = "https://twitter.com/settings/applications/17209810";
+  }
+
   render() {
     const { error, isUserProfileLoaded, isUserPostsLoaded, user } = this.state;
     if (error) {
@@ -110,10 +148,15 @@ class UserProfile extends React.Component {
       }
 
       const authUserComponents = (
-        <div className="UserProfile-edit-button">
-          <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
-            <button>プロフィールを編集</button>
-          </NavLink>
+        <div className="UserProfile-menu">
+          <div className="UserProfile-edit-button">
+            <NavLink className="UserProfile-edit-button" to='/settings/profile/'>
+              <button>プロフィールを編集</button>
+            </NavLink>
+          </div>
+          <div className="UserProfile-delete-button">
+            <button onClick={this.confirmDeletionAccount}>アカウントを削除</button>
+          </div>
         </div>
       );
 

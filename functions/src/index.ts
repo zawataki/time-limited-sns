@@ -10,6 +10,7 @@ import * as moment from 'moment';
 admin.initializeApp();
 const func = functions.region('asia-northeast1');
 const usersCollectionRef = admin.firestore().collection('users');
+const postedContentsCollectionRef = admin.firestore().collection('posted-contents');
 
 export const registerUserToFirestore = func.auth.user()
   .onCreate(async (user) => {
@@ -33,6 +34,16 @@ export const deleteUserFromFirestore = func.auth.user()
       throw new Error(`A user deleted from auth not found in firestore. ${user}`);
     }
 
+    console.log(`Delete messages the user posted`);
+    const snapshot = await postedContentsCollectionRef
+      .where('author', '==', userInRepository.ref)
+      .get();
+    if (!snapshot.empty) {
+      snapshot.forEach(async oldPostedContent => {
+        await oldPostedContent.ref.delete();
+      });
+    }
+
     console.log(`Delete user ${userInRepository.id} => ${userInRepository.data()}`);
     const writeResult = await userInRepository.ref.delete();
     console.log(`A user with document ID '${userInRepository.id}' was deleted from firestore at ${writeResult.writeTime.toDate()}'`);
@@ -51,7 +62,7 @@ export const deleteOldPostedContents = func.https
       return;
     }
 
-    const snapshot = await admin.firestore().collection('posted-contents')
+    const snapshot = await postedContentsCollectionRef
       .where('postedAt', '<', moment().subtract(1, 'hours').toDate())
       .get();
 

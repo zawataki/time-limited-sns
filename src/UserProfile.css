@@ -19,8 +19,14 @@
   font-size: 18px;
 }
 
-.UserProfile-edit-button button {
-  right: 0;
+.UserProfile-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.UserProfile-delete-button button {
+  background-color: #E1235E;
 }
 
 .UserProfile-posted-contents {
