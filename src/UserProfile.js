@@ -99,17 +99,34 @@ class UserProfile extends React.Component {
 
     if (agreedWithDeletion) {
       try {
-        // TODO Resolve error: "This operation is sensitive and requires recent authentication. Log in again before retrying this request."
-        await firebase.auth().currentUser.delete();
-        window.alert(`今までご利用いただき、ありがとうございました。
-アカウントを削除しました。`);
-        window.location.href = "/";
+        await this.deleteUserAccount();
       } catch (error) {
+        if (error.code === "auth/requires-recent-login") {
+          window.alert(`アカウントを削除するためにTwitterの再認証が必要です。
+この画面に再び戻ってきた後に改めてアカウントの削除をお試しください。`);
+
+          const user = firebase.auth().currentUser;
+          const authProvider = new firebase.auth.TwitterAuthProvider();
+          await user.reauthenticateWithRedirect(authProvider);
+          return
+        }
         console.error("Failed to delete account", error);
         window.alert("アカウントの削除に失敗しました");
       }
     }
-  };
+  }
+
+  async deleteUserAccount() {
+    console.log("Delete user account");
+    await firebase.auth().currentUser.delete();
+    window.alert(`今までご利用いただき、ありがとうございました。
+アカウント削除が完了しました。
+なお、Twitterのアプリ連携については、Twitter側の制限のため
+お客様自身で解除する必要があります。
+解除するには、このメッセージを消した後に表示されるTwitter画面から
+「アクセス権を取り消す」を実行してください。`);
+    window.location.href = "https://twitter.com/settings/applications/17209810";
+  }
 
   render() {
     const { error, isUserProfileLoaded, isUserPostsLoaded, user } = this.state;
