@@ -7,6 +7,8 @@ import firebase from "./firebase";
 import SignIn from './SignIn';
 import PostPage from './PostPage';
 import ProfileEdit from './ProfileEdit';
+import iconKagerou from './icon/kagerou.png';
+import Favicon from 'react-favicon';
 
 class App extends React.Component {
   state = {
@@ -71,6 +73,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <Favicon url={iconKagerou} />
         {getPageContent()}
       </div >
     );
