@@ -22,6 +22,7 @@ class ProfileEdit extends React.Component {
       isUserProfileLoaded: false,
       saveButtonDisabled: true,
       nameInputAreaDisabled: false,
+      nameLength: 0,
     };
 
     // This binding is necessary to make `this` work in the callback
@@ -42,6 +43,7 @@ class ProfileEdit extends React.Component {
           isUserProfileLoaded: true,
           userName: userSnapshot.data().name,
           profilePictureURL: userSnapshot.data().profilePictures.middle,
+          nameLength: userSnapshot.data().name.length,
         });
       })
       .catch(error => {
@@ -56,7 +58,8 @@ class ProfileEdit extends React.Component {
   handleChange(event) {
     this.setState({
       userName: event.target.value,
-      saveButtonDisabled: event.target.value ? false : true
+      saveButtonDisabled: event.target.value ? false : true,
+      nameLength: event.target.value.length,
     });
   }
 
@@ -178,7 +181,7 @@ class ProfileEdit extends React.Component {
                   disabled={this.state.nameInputAreaDisabled}>
                 </input>
               </label>
-              <div>1/50</div>
+              <div>{this.state.nameLength}/50</div>
             </div>
           </div>
           <div className='ProfileEdit-save-button'>
