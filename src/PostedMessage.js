@@ -27,7 +27,7 @@ function PostedMessage(props) {
       display: `${deleted ? 'none' : ''}`
     }}>
       <div className="Post-user-icon">
-        <NavLink className="Post-user-icon-link"
+        <NavLink
           to={'/users/' + post.author.id}>
           <img src={post.author.profilePictureURL} alt="profile"></img>
         </NavLink>
@@ -35,11 +35,14 @@ function PostedMessage(props) {
       <div className="Post-username-timestamp-content">
         <div className="Post-top-line">
           <div className="Post-top-line-left-side">
-            <NavLink className="Post-username"
-              to={'/users/' + post.author.id}>
-              {post.author.name}
-            </NavLink>
-            <span className="Post-timestamp">　·　{timestamp}</span>
+            <div className="Post-username-wrapper">
+              <NavLink className="Post-username"
+                to={'/users/' + post.author.id}>
+                {post.author.name}
+              </NavLink>
+            </div>
+            <span className="Post-timestamp-separator">·</span>
+            <span className="Post-timestamp">{timestamp}</span>
           </div>
           <div className="Post-top-line-right-side">
             {
