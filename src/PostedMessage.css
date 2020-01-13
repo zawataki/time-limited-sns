@@ -20,6 +20,16 @@
   margin-right: 10px;
 }
 
+.Post-user-icon-link {
+  display: flex;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+}
+
 .Post-user-icon img {
   max-width: 100%;
   max-height: 100%;

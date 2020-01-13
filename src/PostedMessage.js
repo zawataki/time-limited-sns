@@ -27,7 +27,7 @@ function PostedMessage(props) {
       display: `${deleted ? 'none' : ''}`
     }}>
       <div className="Post-user-icon">
-        <NavLink className="Post-username"
+        <NavLink className="Post-user-icon-link"
           to={'/users/' + post.author.id}>
           <img src={post.author.profilePictureURL} alt="profile"></img>
         </NavLink>
