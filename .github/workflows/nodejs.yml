@@ -30,6 +30,6 @@ jobs:
       run: |
         yarn install
         yarn build
-        # yarn test # TODO Fix test script and uncomment this line
+        yarn test
       env:
         CI: true
