@@ -15,7 +15,7 @@ class UserProfile extends React.Component {
       isUserProfileLoaded: false,
       isUserPostsLoaded: false,
       user: {
-        id: props.match.params.id,
+        id: props.id,
         name: "",
         profilePictureMiddle: "",
       },

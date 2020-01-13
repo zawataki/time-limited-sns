@@ -48,7 +48,10 @@ class App extends React.Component {
           </header>
           <main className="App-main">
             <Route exact path='/' component={Timeline} />
-            <Route exact path='/users/:id' component={UserProfile} />
+            <Route exact path='/users/:id' render={props =>
+              <UserProfile key={props.match.params.id}
+                id={props.match.params.id} />
+            } />
             <Route exact path='/compose/post/' component={PostPage} />
             <Route exact path='/settings/profile/' component={ProfileEdit} />
           </main>
