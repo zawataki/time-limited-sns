@@ -4,6 +4,7 @@ import './UserProfile.css';
 import moment from 'moment-timezone';
 import { NavLink } from 'react-router-dom';
 import PostedMessage from './PostedMessage';
+import PostButton from './PostButton';
 
 const db = firebase.firestore();
 
@@ -172,6 +173,7 @@ class UserProfile extends React.Component {
               ""}
           </div>
           <div className='UserProfile-posted-contents'>
+            <PostButton />
             {element}
           </div>
         </div>

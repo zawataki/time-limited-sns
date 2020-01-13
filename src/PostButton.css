@@ -1,0 +1,15 @@
+.PostButton {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  z-index: 10;
+}
+
+.PostButton button {
+  font-size: 16px;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+}

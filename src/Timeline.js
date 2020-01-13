@@ -1,9 +1,9 @@
 import React from 'react';
 import './Timeline.css';
 import moment from 'moment-timezone';
-import { NavLink } from "react-router-dom";
 import firebase from "./firebase";
 import PostedMessage from './PostedMessage';
+import PostButton from './PostButton';
 
 const db = firebase.firestore();
 const cachedUsers = new Map();
@@ -91,11 +91,7 @@ class Timeline extends React.Component {
 
       return (
         <div>
-          <div className='Timeline-post-button'>
-            <NavLink className="Timeline-post-button" to='/compose/post/'>
-              <button>投稿</button>
-            </NavLink>
-          </div>
+          <PostButton />
           {list.length <= 0 ? <div>まだ投稿がありません。</div> : list}
         </div>
       );
