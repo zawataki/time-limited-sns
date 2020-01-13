@@ -6,9 +6,37 @@ import jimp from 'jimp';
 import Jimp from 'jimp';
 import { promisify } from 'util';
 import iconUploadImage from './icon/upload-image.svg';
+import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
 
 const db = firebase.firestore();
 const storageRef = firebase.storage().ref();
+
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: '#1CA1F2',
+    },
+    '& .MuiFilledInput-root': {
+      backgroundColor: '#192734',
+      color: 'white',
+    },
+    '& .MuiFilledInput-underline:before': {
+      borderBottomColor: 'grey',
+    },
+    '& .MuiFilledInput-underline:after': {
+      borderBottomColor: '#1CA1F2',
+    },
+    '& .MuiInputLabel-filled': {
+      color: 'gray',
+    },
+    '& .MuiFormHelperText-root': {
+      color: 'gray',
+      fontSize: 14,
+      textAlign: "right",
+    },
+  },
+})(TextField);
 
 class ProfileEdit extends React.Component {
   constructor(props) {
@@ -170,19 +198,25 @@ class ProfileEdit extends React.Component {
                 <img className='ProfileEdit-upload-icon' src={iconUploadImage} alt='upload'></img>
               </InputFiles>
             </div>
-            <div className='ProfileEdit-text'>
-              <label>
-                <div>
-                  名前:
-                </div>
-                <input type="text" required minLength='1' maxLength='50'
-                  value={this.state.userName}
-                  placeholder='名前を追加' onChange={this.handleChange}
-                  disabled={this.state.nameInputAreaDisabled}>
-                </input>
-              </label>
-              <div>{this.state.nameLength}/50</div>
-            </div>
+            <CssTextField id="filled-basic" label="名前" variant="filled"
+              required fullWidth margin="normal"
+              placeholder='名前を追加' value={this.state.userName}
+              onChange={this.handleChange}
+              disabled={this.state.nameInputAreaDisabled}
+              helperText={this.state.nameLength + "/50"}
+              inputProps={{
+                style: { fontSize: 18 },
+                minLength: 1,
+                maxLength: 50,
+              }}
+              InputLabelProps={{
+                style: {
+                  // scale(0.75) is automatically applied, so divide by 0.75.
+                  fontSize: 14 / 0.75
+                },
+                shrink: true
+              }}
+              className='ProfileEdit-name' />
           </div>
           <div className='ProfileEdit-save-button'>
             <button onClick={this.saveProfile}

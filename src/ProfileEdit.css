@@ -42,22 +42,6 @@
   top: 30%;
 }
 
-.ProfileEdit-text  {
-  background-color: #192734;
-  /* caret-color: white; */
-  border: none;
-  border-bottom: 1px, gray;
-  color: white;
-  box-sizing: border-box;
-}
-
-.ProfileEdit input {
-  z-index: auto;
-  background-color: inherit;
-  color: white;
-  border: none;
-}
-
 .ProfileEdit-save-button button {
   margin: 0 0 0 auto;
   display: block;
