@@ -9,11 +9,25 @@
 }
 
 .Post-user-icon {
+  align-items: center;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   width: 37px;
-  min-width: 37px;
+  height: 37px;
+  position: relative;
   text-size-adjust: 100%;
   margin-right: 10px;
+}
+
+.Post-user-icon-link {
+  display: flex;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  max-height: 100%;
+  height: auto;
+  width: auto;
 }
 
 .Post-user-icon img {
@@ -27,16 +41,20 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  text-size-adjust: 100%;
   flex-grow: 1;
-  min-width: 0;
+  justify-content: center;
+  position: relative;
+  text-size-adjust: 100%;
 }
 
 .Post-top-line {
+  align-items: stretch;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
+  text-size-adjust: 100%;
 }
 
 .Post-top-line-left-side {
@@ -44,51 +62,48 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  min-width: 0;
+  flex-shrink: 1;
+  font-size: 14px;
+  position: relative;
+  text-size-adjust: 100%;
 }
 
 .Post-top-line-right-side {
   align-items: stretch;
   box-sizing: border-box;
   display: flex;
-  width: 14px;
-  min-width: 14px;
-  max-width: 14px;
+  flex-direction: row;
+  font-size: 14px;
+  justify-content: flex-start;
   margin-left: 18px;
-}
-
-.Post-username-wrapper {
-  display: flex;
-  overflow: hidden;
+  position: relative;
+  text-size-adjust: 100%;
+  width: 25px;
+  height: 25px;
 }
 
 .Post-username {
+  display: flex;
   font-weight: bold;
   color: white;
   text-decoration: none;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-height: 100%;
+  height: auto;
+  width: auto;
 }
 
 .Post-username:hover {
   text-decoration: underline;
 }
 
-.Post-timestamp-separator {
-  color: #8896A6;
-  margin: 0px 5px;
-}
-
 .Post-timestamp {
   color: #8896A6;
-  min-width: 130px;
 }
 
 .Post-delete-icon {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 55%;
+  max-width: auto;
+  margin: 0 0 0 auto;
   object-fit: contain;
 }
 
