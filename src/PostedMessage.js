@@ -10,7 +10,7 @@ const auth = firebase.auth();
 function PostedMessage(props) {
   let post = props.post;
   let timestamp = post.postedAt.tz("Asia/Tokyo")
-    .format('YYYY-MM-DD HH:mm:ss');
+    .format('HH:mm');
 
   const [deleted, setDeleted] = useState(false);
 
