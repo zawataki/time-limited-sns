@@ -1,8 +1,18 @@
+## カゲロウ
 [![Node CI - GitHub Actions](https://github.com/zawataki/time-limited-sns/workflows/Node%20CI/badge.svg)](https://github.com/zawataki/time-limited-sns/actions?query=workflow%3A%22Node+CI%22)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1時間で投稿が消えるSNS [カゲロウ](https://kagerou.y-takizawa.net/) です。  
+ソースコードは [Create React App](https://github.com/facebook/create-react-app) をベースにしています。
 
-## Available Scripts
+## Requirements for development
+
+- Node.js
+
+## Known Issues
+
+See [issues](https://github.com/zawataki/time-limited-sns/issues).
+
+## Commands for Development
 
 In the project directory, you can run:
 
