@@ -34,7 +34,7 @@ class App extends React.Component {
           <header className="App-header">
             <div>
               <NavLink className="App-link" to='/'>
-                カゲロウ（開発中）
+                カゲロウ
               </NavLink>
             </div>
             <div>
