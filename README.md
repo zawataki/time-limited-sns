@@ -4,6 +4,14 @@
 1時間で投稿が消えるSNS [カゲロウ](https://kagerou.y-takizawa.net/) です。  
 ソースコードは [Create React App](https://github.com/facebook/create-react-app) をベースにしています。
 
+## System Architecture
+- Frontend: React.js that is hosted by GitHub Pages
+- Backend: [Firebase](https://firebase.google.com/)
+  - User Authentication: [Firebase Authentication](https://firebase.google.com/products/auth/)
+  - Database: [Cloud Firestore](https://firebase.google.com/products/firestore/)
+  - File Storage: [Cloud Storage for Firebase](https://firebase.google.com/products/storage)
+  - Data Management: [Cloud Functions for Firebase](https://firebase.google.com/products/functions/)
+
 ## Requirements for development
 
 - Node.js
