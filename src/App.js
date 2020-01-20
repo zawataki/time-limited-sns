@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Timeline from "./Timeline";
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
 import UserProfile from './UserProfile';
 import firebase from "./firebase";
 import SignIn from './SignIn';
 import PostPage from './PostPage';
 import ProfileEdit from './ProfileEdit';
+import PageNotFound from './PageNotFound';
 
 class App extends React.Component {
   state = {
@@ -47,13 +48,16 @@ class App extends React.Component {
             </div>
           </header>
           <main className="App-main">
-            <Route exact path='/' component={Timeline} />
-            <Route exact path='/users/:id' render={props =>
-              <UserProfile key={props.match.params.id}
-                id={props.match.params.id} />
-            } />
-            <Route exact path='/compose/post/' component={PostPage} />
-            <Route exact path='/settings/profile/' component={ProfileEdit} />
+            <Switch>
+              <Route exact path='/' component={Timeline} />
+              <Route exact path='/users/:id' render={props =>
+                <UserProfile key={props.match.params.id}
+                  id={props.match.params.id} />
+              } />
+              <Route exact path='/compose/post/' component={PostPage} />
+              <Route exact path='/settings/profile/' component={ProfileEdit} />
+              <Route component={PageNotFound} />
+            </Switch>
           </main>
         </BrowserRouter>
       </div>
